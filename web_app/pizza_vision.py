@@ -56,7 +56,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 # %matplotlib inline
 
-/app/pizza_vision/web_app/
+
 # Pizza info
 big_pizza_details = pickle.load(open('/app/pizza_vision/web_app/big_pizza_details.pickle', 'rb'))
 url_df = pickle.load(open('/app/pizza_vision/web_app/big_pizza_urls.pickle', 'rb'))
