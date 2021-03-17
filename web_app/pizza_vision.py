@@ -70,7 +70,7 @@ class_ids = pickle.load(open('/app/pizza_vision/web_app/OGresnet_classids.pickle
 
 # NLP info
 nmf_df = pickle.load(open('/app/pizza_vision/web_app/colab_nmf_df.pickle', 'rb'))
-nmf = pickle.load(open('/app/pizza_vision/web_app/olab_nmf.pickle', 'rb'))
+nmf = pickle.load(open('/app/pizza_vision/web_app/colab_nmf.pickle', 'rb'))
 doc_topic = pickle.load(open('/app/pizza_vision/web_app/colab_doc_topic.pickle', 'rb'))
 topic_word = pickle.load(open('/app/pizza_vision/web_app/colab_topic_word.pickle', 'rb'))
 tfidf = pickle.load(open('/app/pizza_vision/web_app/colab_tfidf.pickle', 'rb'))
