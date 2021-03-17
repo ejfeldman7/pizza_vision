@@ -118,9 +118,8 @@ def get_image_recs(img_path, num_recs):
   return rec_ids
 
 # Helper function to extract resnet features from an image
-def extract_features(img_path, model):
+def extract_features(img, model):
     input_shape = (224, 224, 3)
-    img = image.load_img(img_path, target_size=(input_shape[0], input_shape[1]))
     img_array = image.img_to_array(img)
     expanded_img_array = np.expand_dims(img_array, axis=0)
     preprocessed_img = preprocess_input(expanded_img_array)
