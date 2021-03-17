@@ -185,7 +185,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     neighbors = NearestNeighbors(n_neighbors=25, algorithm='brute', metric='euclidean').fit(feature_list)
 
     # Get 25 recommended images for an image (placeholder file entered for now)
-    image_recs = get_image_recs(uploaded_file,25)
+    image_recs = get_image_recs(image,25)
 
     # Use this to find and show the top three images, along with the uploaded image (placeholder files for now)
     distances, indices = neighbors.kneighbors([extract_features(image,resnet_model)])
