@@ -181,7 +181,7 @@ if (uploaded_file is not None & (user_text != '')):
     st.write("")
     st.write("Working on a recommendation...")
 
-    # Get the 25 closest images to the input using Nearest Neighbors by Euclidean distance
+    '''# Get the 25 closest images to the input using Nearest Neighbors by Euclidean distance
     neighbors = NearestNeighbors(n_neighbors=25, algorithm='brute', metric='euclidean').fit(feature_list)
 
     # Get 25 recommended images for an image (placeholder file entered for now)
@@ -219,4 +219,5 @@ if (uploaded_file is not None & (user_text != '')):
     print('I recommend you try:',image_recs_df.iloc[recs[1]]['name'],'located at',image_recs_df.iloc[recs[1]]['address'],'.')
     print('\n')
     print('I recommend you try:',image_recs_df.iloc[recs[2]]['name'],'located at',image_recs_df.iloc[recs[2]]['address'],'.')
+    '''
 
