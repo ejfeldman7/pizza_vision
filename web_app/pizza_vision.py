@@ -108,7 +108,7 @@ def plot_images(filenames, distances):
 
 # Helper function to return restaurant ids for recommendations
 def get_image_recs(img_path, num_recs):
-  img_features = extract_features(img_path,model)
+  img_features = extract_features(img_path,resnet_model)
   distances, indices = neighbors.kneighbors([img_features])
   # Since this image is from outside our images, first image is ok to take as recommendation
   similar_image_paths = [filenames[indices[0][i]] for i in range(0, num_recs)]
