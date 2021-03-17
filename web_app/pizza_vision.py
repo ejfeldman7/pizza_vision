@@ -76,7 +76,7 @@ topic_word = pickle.load(open('/app/pizza_vision/web_app/colab_topic_word.pickle
 tfidf = pickle.load(open('/app/pizza_vision/web_app/colab_tfidf.pickle', 'rb'))
 tfidf__mat = pickle.load(open('/app/pizza_vision/web_app/colab_tfidf_mat.pickle', 'rb'))
 
-model = ResNet50(weights='imagenet',include_top=False, input_shape=(224, 224, 3),pooling='max')
+resnet_model = ResNet50(weights='imagenet',include_top=False, input_shape=(224, 224, 3),pooling='max')
 
 # Helper function to get the classname
 def classname(str):
@@ -120,8 +120,7 @@ def get_image_recs(img_path, num_recs):
 # Helper function to extract resnet features from an image
 def extract_features(img, model):
     input_shape = (224, 224, 3)
-    img_array = img_to_array(img, target_size=(224, 224))
-    # img_array = image.img_to_array(img)
+    img_array = image.img_to_array(img)
     expanded_img_array = np.expand_dims(img_array, axis=0)
     preprocessed_img = preprocess_input(expanded_img_array)
     features = model.predict(preprocessed_img)
@@ -175,7 +174,8 @@ st.title("Upload + Classification Example")
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if ((uploaded_file is not None) & (user_text != '')):
-    user_image = Image.open(uploaded_file)
+    # user_image = Image.open(uploaded_file)
+    user_image = load_img(image_path, target_size=(224, 224)
     st.image(user_image, caption='Uploaded Image.', use_column_width=True)
     st.write("")
     st.write("Working on a recommendation...")
@@ -187,7 +187,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     image_recs = get_image_recs(uploaded_file,25)
 
     # Use this to find and show the top three images, along with the uploaded image (placeholder files for now)
-    distances, indices = neighbors.kneighbors([extract_features(uploaded_file,model)])
+    distances, indices = neighbors.kneighbors([extract_features(user_image,resnet_model)])
 
     # Since this image is from outside our images, first image is ok to take as recommendation
     similar_image_paths = [uploaded_file] + [filenames[indices[0][i]] for i in range(0, 3)]
