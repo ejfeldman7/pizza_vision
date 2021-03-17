@@ -41,8 +41,8 @@ import sklearn
 # from sklearn.decomposition import PCA
 from sklearn.metrics import pairwise_distances
 
-# import PIL
-# from PIL import Image
+import PIL
+from PIL import Image
 from sklearn.neighbors import NearestNeighbors
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from tensorflow.keras.preprocessing import image
