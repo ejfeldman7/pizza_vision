@@ -175,7 +175,7 @@ uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if ((uploaded_file is not None) & (user_text != '')):
     # user_image = Image.open(uploaded_file)
-    user_image = load_img(image_path, target_size=(224, 224)
+    user_image = load_img(uploaded_file, target_size=(224, 224)
     st.image(user_image, caption='Uploaded Image.', use_column_width=True)
     st.write("")
     st.write("Working on a recommendation...")
