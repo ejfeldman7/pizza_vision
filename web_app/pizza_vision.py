@@ -212,7 +212,7 @@ if (uploaded_file is not None & (user_text != '')):
     image_recs_df.iloc[recs]
 
     # Report back the final recommendations
-    print('Based on your image and text description, the following options are recommended:) #str(item)
+    print('Based on your image and text description, the following options are recommended:') #str(item)
     print('\n')
     print('I recommend you try:',image_recs_df.iloc[recs[0]]['name'],'located at',image_recs_df.iloc[recs[0]]['address'],'.')
     print('\n')
