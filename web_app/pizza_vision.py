@@ -177,6 +177,8 @@ if ((uploaded_file is not None) & (user_text != '')):
     # user_image = Image.open(uploaded_file)
     # image_other = image.load_img(uploaded_file,target_size=(input_shape[0], input_shape[1]))
     image = Image.open(uploaded_file)
+    newsize = (224, 224) 
+    image = image.resize(newsize) 
     st.image(image, caption='Uploaded Image.', use_column_width=True)
     st.write("")
     st.write("Working on a recommendation...")
