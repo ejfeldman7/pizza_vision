@@ -30,23 +30,22 @@ sw = stops + ['pizza','pizzas','\xa0we','come', 'food', 'one', 'give', 'ask', 'b
 nltk.download('wordnet')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
-from nltk import sent_tokenize, word_tokenize
-from nltk.stem.snowball import SnowballStemmer
-from nltk.stem.wordnet import WordNetLemmatizer
+# from nltk import sent_tokenize, word_tokenize
+# from nltk.stem.snowball import SnowballStemmer
+# from nltk.stem.wordnet import WordNetLemmatizer
 import string
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords, wordnet
 import pickle
-from tqdm import tqdm, tqdm_notebook
+# from tqdm import tqdm, tqdm_notebook
 import sklearn
-from sklearn.manifold import TSNE
-from sklearn.decomposition import PCA
+# from sklearn.manifold import TSNE
+# from sklearn.decomposition import PCA
 from sklearn.metrics import pairwise_distances
 
 import PIL
 from PIL import Image
 from sklearn.neighbors import NearestNeighbors
-
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from tensorflow.keras.preprocessing import image
 
