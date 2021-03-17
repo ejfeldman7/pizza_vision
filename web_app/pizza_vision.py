@@ -69,12 +69,12 @@ class_ids = pickle.load(open('/app/pizza_vision/web_app/OGresnet_classids.pickle
 # apart_features = pickle.load(open('/content/drive/My Drive/ds/pizza_images/autoencoder/features-resnet-apart.pickle', 'rb'))
 
 # NLP info
-nmf_df = pickle.load(nmf_df, open('/app/pizza_vision/web_app/colab_nmf_df.pickle', 'rb'))
-nmf = pickle.load(nmf, open('/app/pizza_vision/web_app/olab_nmf.pickle', 'rb'))
-doc_topic = pickle.load(doc_topic, open('/app/pizza_vision/web_app/colab_doc_topic.pickle', 'rb'))
-topic_word = pickle.load(topic_word, open('/app/pizza_vision/web_app/colab_topic_word.pickle', 'rb'))
-tfidf = pickle.load(tfidf, open('/app/pizza_vision/web_app/colab_tfidf.pickle', 'rb'))
-tfidf__mat = pickle.load(tfidf__mat, open('/app/pizza_vision/web_app/colab_tfidf_mat.pickle', 'rb'))
+nmf_df = pickle.load(open('/app/pizza_vision/web_app/colab_nmf_df.pickle', 'rb'))
+nmf = pickle.load(open('/app/pizza_vision/web_app/olab_nmf.pickle', 'rb'))
+doc_topic = pickle.load(open('/app/pizza_vision/web_app/colab_doc_topic.pickle', 'rb'))
+topic_word = pickle.load(open('/app/pizza_vision/web_app/colab_topic_word.pickle', 'rb'))
+tfidf = pickle.load(open('/app/pizza_vision/web_app/colab_tfidf.pickle', 'rb'))
+tfidf__mat = pickle.load(open('/app/pizza_vision/web_app/colab_tfidf_mat.pickle', 'rb'))
 
 model = ResNet50(weights='imagenet',include_top=False, input_shape=(224, 224, 3),pooling='max')
 
