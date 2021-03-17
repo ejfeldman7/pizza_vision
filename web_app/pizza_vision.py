@@ -166,7 +166,7 @@ st.sidebar.write(
     This site was created by Ethan Feldman. You can find him on [GitHub](https://github.com/ejfeldman7), [LinkedIn](https://www.linkedin.com/in/feldmanethan/), [Medium/TDS](https://ethan-feldman.medium.com/) and eventually on his website (link to come)!
     ''')
 st.title('Pizza-Vision')
-st.write('A few years ago, our favorite pizzeria closed and ever since, my wife and I have not been able to find a new pizza that matched the same inocuous style. In an attempt to find new pizza, I created the recommendation system that filters by similar images and then recommends based on similarity to user reviews.)
+st.write('A few years ago, our favorite pizzeria closed and ever since, my wife and I have not been able to find a new pizza that matched the same inocuous style. In an attempt to find new pizza, I created the recommendation system that filters by similar images and then recommends based on similarity to user reviews.')
 st.write('To use this recommender, try adding an image and a description of the pizza you want. Try to think about the style, the crust type, flavors, and more in your description.')
 st.write('You must add text and an image to get a recommendation')
 user_text = st.text_input("Write a couple sentences (the more the better) to describe your pizza", '')
