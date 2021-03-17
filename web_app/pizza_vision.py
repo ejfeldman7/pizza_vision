@@ -120,8 +120,7 @@ def get_image_recs(img_path, num_recs):
 # Helper function to extract resnet features from an image
 def extract_features(img_path, model):
     input_shape = (224, 224, 3)
-    img = image.load_img(img_path,
-                         target_size=(input_shape[0], input_shape[1]))
+    img = image.load_img(img_path, target_size=(input_shape[0], input_shape[1]))
     img_array = image.img_to_array(img)
     expanded_img_array = np.expand_dims(img_array, axis=0)
     preprocessed_img = preprocess_input(expanded_img_array)
@@ -176,8 +175,8 @@ st.title("Upload + Classification Example")
 uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if ((uploaded_file is not None) & (user_text != '')):
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image.', use_column_width=True)
+    user_image = Image.open(uploaded_file)
+    st.image(user_image, caption='Uploaded Image.', use_column_width=True)
     st.write("")
     st.write("Working on a recommendation...")
 
