@@ -194,7 +194,7 @@ if ((uploaded_file is not None) & (user_text != '')):
 
     # Since this image is from outside our images, first image is ok to take as recommendation
     similar_image_paths = [uploaded_file] + [filenames[indices[0][i]] for i in range(0, 3)]
-    plot_images(similar_image_paths, distances[0])
+    # plot_images(similar_image_paths, distances[0])
 
     # Get dataframe of 25 recommended pizzas from full restaurant list
     image_recs_df = nmf_df[nmf_df['id'].isin(image_recs) & (nmf_df['pizza_words'] != '')].reset_index()
