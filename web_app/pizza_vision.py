@@ -45,7 +45,7 @@ import PIL
 from PIL import Image
 from sklearn.neighbors import NearestNeighbors
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
-from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing import image as image_process
 
 import glob
 import matplotlib
@@ -120,7 +120,7 @@ def get_image_recs(img_path, num_recs):
 # Helper function to extract resnet features from an image
 def extract_features(img, model):
     input_shape = (224, 224, 3)
-    img_array = image.img_to_array(img)
+    img_array = image_process.img_to_array(img)
     expanded_img_array = np.expand_dims(img_array, axis=0)
     preprocessed_img = preprocess_input(expanded_img_array)
     features = model.predict(preprocessed_img)
