@@ -161,7 +161,7 @@ st.sidebar.write(
     __About__ \n
     This project was built from just under 1000 scraped restaurants in the Chicagoland area. The user reviews were used to create vectors across the pizza spectrum for comparisons between pizzas. 
     \n
-    This site was created by Ethan Feldman. You can find him on [GitHub](https://github.com/ejfeldman7), [LinkedIn](https://www.linkedin.com/in/feldmanethan/), [Medium/TDS](https://ethan-feldman.medium.com/) and eventually on his website (link to come)!
+    This site was created by Ethan Feldman. You can find him on [GitHub](https://github.com/ejfeldman7), [LinkedIn](https://www.linkedin.com/in/feldmanethan/), [Medium/TDS](https://ethan-feldman.medium.com/) and his [website](ejfeldman.com).
     ''')
 st.title('Pizza-Vision')
 st.write('A few years ago, our favorite pizzeria closed and ever since, my wife and I have not been able to find a new pizza that matched the same inocuous style. In an attempt to find new pizza, I created the recommendation system that filters by similar images and then recommends based on similarity to user reviews.')
