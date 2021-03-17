@@ -211,7 +211,7 @@ if ((uploaded_file is not None) & (user_text != '')):
 
     # Select the top three closest user reviews with the input text and find those restaurants
     recs = list(indices[0][0:4])
-    image_recs_df.iloc[recs]
+    # image_recs_df.iloc[recs]
 
     # Report back the final recommendations
     print('Based on your image and text description, the following options are recommended:') #str(item)
