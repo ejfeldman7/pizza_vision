@@ -22,17 +22,15 @@ from io import StringIO
 import string
 
 import nltk
-from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.corpus import stopwords
 nltk.download('stopwords')
-stops = stopwords.words("english")
-sw = stops + ['pizza','pizzas','\xa0we','come', 'food', 'one', 'give', 'ask', 'back', 'great', 'take', 'wait','bar','pasta','time','place','go','would','say','call','make','minute','like','miss','pita','rib','salad','gyro','tzatziki','wing','burger','chicken','sandwich','dog','steak','hotdog']
 nltk.download('wordnet')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 # from nltk import sent_tokenize, word_tokenize
 # from nltk.stem.snowball import SnowballStemmer
 # from nltk.stem.wordnet import WordNetLemmatizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 import string
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords, wordnet
@@ -55,6 +53,9 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 # %matplotlib inline
 
+# Set stop words for cleaning input text
+stops = stopwords.words("english")
+sw = stops + ['pizza','pizzas','\xa0we','come', 'food', 'one', 'give', 'ask', 'back', 'great', 'take', 'wait','bar','pasta','time','place','go','would','say','call','make','minute','like','miss','pita','rib','salad','gyro','tzatziki','wing','burger','chicken','sandwich','dog','steak','hotdog']
 
 # Pizza info
 big_pizza_details = pickle.load(open('/app/pizza_vision/web_app/big_pizza_details.pickle', 'rb'))
