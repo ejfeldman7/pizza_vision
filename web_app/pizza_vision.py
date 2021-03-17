@@ -175,8 +175,8 @@ uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if ((uploaded_file is not None) & (user_text != '')):
     # user_image = Image.open(uploaded_file)
-    user_image = load_img(uploaded_file, target_size=(224, 224)
-    st.image(user_image, caption='Uploaded Image.', use_column_width=True)
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Uploaded Image.', use_column_width=True)
     st.write("")
     st.write("Working on a recommendation...")
 
@@ -187,7 +187,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     image_recs = get_image_recs(uploaded_file,25)
 
     # Use this to find and show the top three images, along with the uploaded image (placeholder files for now)
-    distances, indices = neighbors.kneighbors([extract_features(user_image,resnet_model)])
+    distances, indices = neighbors.kneighbors([extract_features(uploaded_file,resnet_model)])
 
     # Since this image is from outside our images, first image is ok to take as recommendation
     similar_image_paths = [uploaded_file] + [filenames[indices[0][i]] for i in range(0, 3)]
