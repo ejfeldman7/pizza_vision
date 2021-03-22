@@ -112,7 +112,7 @@ def plot_images(filenames, distances):
             caption = "Your Input Image"
         else:
             # ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +"\nDistance: " +str(float("{0:.2f}".format(distances[i]))))
-            caption = "Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +"\nDistance: " +str(float("{0:.2f}".format(distances[i])))
+            caption = "Similar Image from:"+ "\n" + github_files[i].split('/')[-1].split('.')[0]
         st.image(image, caption=caption, use_column_width=True)
         # plt.imshow(image)
 
@@ -189,7 +189,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     image = Image.open(uploaded_file)
     newsize = (224, 224) 
     image = image.resize(newsize) 
-    st.image(image, caption='Uploaded Image.', use_column_width=True)
+    # st.image(image, caption='Uploaded Image.', use_column_width=True)
     st.write("")
     st.write("Working on a recommendation...")
 
