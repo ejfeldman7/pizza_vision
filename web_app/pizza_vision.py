@@ -233,13 +233,19 @@ if ((uploaded_file is not None) & (user_text != '')):
     # image_recs_df.iloc[recs]
 
     # Report back the final recommendations
+    "Hello, {}. You are {}.".format(name, age)
     st.write('Based on your image and text description, the following options are recommended:') #str(item)
     st.write('\n')
-    st.write('I recommend you try:',image_recs_df.iloc[recs[0]]['name'],'located at',image_recs_df.iloc[recs[0]]['address'],'.')
+    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[0]]['name'],url_df.iloc[recs[0]]['rest_url'],image_recs_df.iloc[recs[0]]['address']))
     st.write('\n')
-    st.write('I recommend you try:',image_recs_df.iloc[recs[1]]['name'],'located at',image_recs_df.iloc[recs[1]]['address'],'.')
+    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[1]]['name'],url_df.iloc[recs[1]]['rest_url'],image_recs_df.iloc[recs[1]]['address']))
     st.write('\n')
-    st.write('I recommend you try:',image_recs_df.iloc[recs[2]]['name'],'located at',image_recs_df.iloc[recs[2]]['address'],'.')
+    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[2]]['name'],url_df.iloc[recs[2]]['rest_url'],image_recs_df.iloc[recs[2]]['address']))
+    # st.write('I recommend you try:',image_recs_df.iloc[recs[0]]['name'],'located at',image_recs_df.iloc[recs[0]]['address'],'.')
+    # st.write('\n')
+    # st.write('I recommend you try:',image_recs_df.iloc[recs[1]]['name'],'located at',image_recs_df.iloc[recs[1]]['address'],'.')
+    # st.write('\n')
+    # st.write('I recommend you try:',image_recs_df.iloc[recs[2]]['name'],'located at',image_recs_df.iloc[recs[2]]['address'],'.')
 
     '''__If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
     
