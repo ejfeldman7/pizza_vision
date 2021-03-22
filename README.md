@@ -10,6 +10,9 @@
 - Notebooks for natural language processing: pizza_nmf_location  
 - Notebooks for making a recommendation app: combined_pizza_recs, streamlit_pizza_vision  
 
+## Ih the web_app folder you will find:
+All pickles of data and models along with a .py file for the Streamlit app to run on
+
 ## In the Visuals folder you will find:  
 
 An assortment of visuals used for the presentation
