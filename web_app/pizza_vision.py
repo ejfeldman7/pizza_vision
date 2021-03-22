@@ -118,11 +118,11 @@ def plot_images(filenames, distances):
         st.image(image, caption=caption, width=100)
     
     captions_on_page = ['Your Input Image']
-    for file in filenames.pop(0):
-      captions_on_page.append(file.split('/')[-1].split('.')[0])
+    for file in github_files.pop(0):
+      captions_on_page.append(file.split('/')[-1].split('.')[0].split('_'))
     captions_on_page = captions_on_page[0:4]
     images_on_page = images
-    st.image(images_on_page, width=100, caption=captions_on_page)
+    st.image(images_on_page, width=200, caption=captions_on_page)
 
 
 # Helper function to return restaurant ids for recommendations
