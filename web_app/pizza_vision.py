@@ -103,19 +103,19 @@ def plot_images(filenames, distances):
     for filename in github_files:
         images.append(mpimg.imread(filename))
     
-    plt.figure(figsize=(20, 10))
-    columns = 4
-    for i, image in enumerate(images):
-        ax = plt.subplot(len(images) / columns + 1, columns, i + 1)
-        if i == 0:
-            # ax.set_title("Your Input Image")
-            caption = "Your Input Image"
-        else:
-            # ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +"\nDistance: " +str(float("{0:.2f}".format(distances[i]))))
-            name = [restaurant.capitalize() for restaurant in github_files[i].split('/')[-1].split('.')[0].split('_')]
-            name = ' '.join(name)
-            caption = "Similar Image from:"+ "\n" + github_files[i].split('/')[-1].split('.')[0]
-        st.image(image, caption=caption, width=100)
+    # plt.figure(figsize=(20, 10))
+    # columns = 4
+    # for i, image in enumerate(images):
+    #     ax = plt.subplot(len(images) / columns + 1, columns, i + 1)
+    #     if i == 0:
+    #         # ax.set_title("Your Input Image")
+    #         caption = "Your Input Image"
+    #     else:
+    #         # ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +"\nDistance: " +str(float("{0:.2f}".format(distances[i]))))
+    #         name = [restaurant.capitalize() for restaurant in github_files[i].split('/')[-1].split('.')[0].split('_')]
+    #         name = ' '.join(name)
+    #         caption = "Similar Image from:"+ "\n" + github_files[i].split('/')[-1].split('.')[0]
+    #     st.image(image, caption=caption, width=100)
     
     captions_on_page = ['Your Input Image']
     for indx in range(1,len(github_files)):
@@ -241,7 +241,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     st.write('\n')
     st.write('I recommend you try:',image_recs_df.iloc[recs[2]]['name'],'located at',image_recs_df.iloc[recs[2]]['address'],'.')
 
-    '''__The top three closest images, which may not be in the recommendations seen above can be seen below. The first image is your input image.__'''
+    '''__If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
     
     plot_images(similar_image_paths, distances[0])
 
