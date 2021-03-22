@@ -122,7 +122,7 @@ def plot_images(filenames, distances):
     for file in filenames[1:4]:
       captions_on_page.append(file.split('/')[-1].split('.')[0])
     images_on_page = images
-    st.image(images_on_page, width=100, caption=indices_on_page)
+    st.image(images_on_page, width=100, caption=captions_on_page)
 
 
 # Helper function to return restaurant ids for recommendations
