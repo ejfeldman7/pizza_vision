@@ -108,7 +108,7 @@ def plot_images(filenames, distances):
     for i, image in enumerate(images):
         ax = plt.subplot(len(images) / columns + 1, columns, i + 1)
         if i == 0:
-            ax.set_title("Query Image\n" + github_files[i].split('/')[-1].split('.')[0])
+            ax.set_title("Your Input Image")
         else:
             ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +
                          "\nDistance: " +
