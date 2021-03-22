@@ -86,7 +86,6 @@ def classname(str):
 # Helper function to get the classname and filename
 def classname_filename(str):
     return str.split('/')[-2] + '/' + str.split('/')[-1]
-'/app/pizza_vision/web_app/yelp_only/'
 
 # Helper functions to plot the nearest images given a query image
 def plot_images(filenames, distances):
