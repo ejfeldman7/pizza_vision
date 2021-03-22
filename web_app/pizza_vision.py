@@ -231,15 +231,15 @@ if ((uploaded_file is not None) & (user_text != '')):
     # Select the top three closest user reviews with the input text and find those restaurants
     recs = list(indices[0][0:4])
     # image_recs_df.iloc[recs]
-
+    url_of_recs = list(image_recs_df.iloc[recs]['index'])
     # Report back the final recommendations
     st.write('Based on your image and text description, the following options are recommended:') #str(item)
     st.write('\n')
-    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[0]]['name'],url_df.iloc[recs[0]]['rest_url'],image_recs_df.iloc[recs[0]]['address']))
+    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[0]]['name'],url_df.iloc[url_of_recs[0]]['rest_url'],image_recs_df.iloc[recs[0]]['address']))
     st.write('\n')
-    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[1]]['name'],url_df.iloc[recs[1]]['rest_url'],image_recs_df.iloc[recs[1]]['address']))
+    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[1]]['name'],url_df.iloc[url_of_recs[1]]['rest_url'],image_recs_df.iloc[recs[1]]['address']))
     st.write('\n')
-    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[2]]['name'],url_df.iloc[recs[2]]['rest_url'],image_recs_df.iloc[recs[2]]['address']))
+    st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[2]]['name'],url_df.iloc[url_of_recs[2]]['rest_url'],image_recs_df.iloc[recs[2]]['address']))
     # st.write('I recommend you try:',image_recs_df.iloc[recs[0]]['name'],'located at',image_recs_df.iloc[recs[0]]['address'],'.')
     # st.write('\n')
     # st.write('I recommend you try:',image_recs_df.iloc[recs[1]]['name'],'located at',image_recs_df.iloc[recs[1]]['address'],'.')
