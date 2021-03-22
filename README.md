@@ -33,6 +33,6 @@ Using the nearest twenty five neighbors to a given image's Resnet feature weight
 
 ## Demo
 
-![Streamlit Demo Gif](https://github.com/ejfeldman7/pizza_vision/blob/main/Visuals/app_demo2.gif)
+![Streamlit Demo Gif](https://github.com/ejfeldman7/pizza_vision/blob/main/Visuals/app_demo_2.gif)
 
 
