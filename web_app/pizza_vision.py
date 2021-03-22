@@ -92,13 +92,15 @@ def classname_filename(str):
 def plot_images(filenames, distances):
     
     rec_ids = []
+    github_files = []
     input_file = filenames.pop(0)
     for filename in filenames:
-        filename = '/app/pizza_vision/web_app/yelp_only/' + classname_filename(filename)
-    filenames = [input_file]+filenames
+        github = '/app/pizza_vision/web_app/yelp_only/' + classname_filename(filename)
+        github_files.append(github)
+    github_files = [input_file]+github_files
     
     images = []
-    for filename in filenames:
+    for filename in github_files:
         images.append(mpimg.imread(filename))
     
     plt.figure(figsize=(20, 10))
@@ -106,9 +108,9 @@ def plot_images(filenames, distances):
     for i, image in enumerate(images):
         ax = plt.subplot(len(images) / columns + 1, columns, i + 1)
         if i == 0:
-            ax.set_title("Query Image\n" + filenames[i].split('/')[-1].split('.')[0])
+            ax.set_title("Query Image\n" + github_files[i].split('/')[-1].split('.')[0])
         else:
-            ax.set_title("Similar Image\n" + filenames[i].split('/')[-1].split('.')[0] +
+            ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +
                          "\nDistance: " +
                          str(float("{0:.2f}".format(distances[i]))))
         plt.imshow(image)
