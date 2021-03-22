@@ -118,7 +118,8 @@ def plot_images(filenames, distances):
         st.image(image, caption=caption, width=100)
     
     captions_on_page = []
-    for file in github_files[0:3]:
+    captions_on_page.append(filenames[0])
+    for file in filenames[1:4]:
       captions_on_page.append(file.split('/')[-1].split('.')[0])
     images_on_page = images
     st.image(images_on_page, width=100, caption=indices_on_page)
