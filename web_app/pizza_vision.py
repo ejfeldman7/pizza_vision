@@ -108,12 +108,13 @@ def plot_images(filenames, distances):
     for i, image in enumerate(images):
         ax = plt.subplot(len(images) / columns + 1, columns, i + 1)
         if i == 0:
-            ax.set_title("Your Input Image")
+            # ax.set_title("Your Input Image")
+            caption = "Your Input Image"
         else:
-            ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +
-                         "\nDistance: " +
-                         str(float("{0:.2f}".format(distances[i]))))
-        plt.imshow(image)
+            # ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +"\nDistance: " +str(float("{0:.2f}".format(distances[i]))))
+            caption = "Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +"\nDistance: " +str(float("{0:.2f}".format(distances[i])))
+        st.image(image, caption=caption, use_column_width=True)
+        # plt.imshow(image)
 
 # Helper function to return restaurant ids for recommendations
 def get_image_recs(img_path, num_recs):
