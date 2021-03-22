@@ -118,8 +118,9 @@ def plot_images(filenames, distances):
         st.image(image, caption=caption, width=100)
     
     captions_on_page = ['Your Input Image']
-    for file in filenames[1:4]:
+    for file in filenames.pop(0):
       captions_on_page.append(file.split('/')[-1].split('.')[0])
+    captions_on_page = captions_on_page[0:4]
     images_on_page = images
     st.image(images_on_page, width=100, caption=captions_on_page)
 
