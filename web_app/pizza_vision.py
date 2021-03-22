@@ -116,8 +116,13 @@ def plot_images(filenames, distances):
             name = ' '.join(name)
             caption = "Similar Image from:"+ "\n" + github_files[i].split('/')[-1].split('.')[0]
         st.image(image, caption=caption, width=100)
-        
-        # plt.imshow(image)
+    
+    captions_on_page = []
+    for file in github_files[0:3]:
+      captions_on_page.append(file.split('/')[-1].split('.')[0])
+    images_on_page = images
+    st.image(images_on_page, width=100, caption=indices_on_page)
+
 
 # Helper function to return restaurant ids for recommendations
 def get_image_recs(img_path, num_recs):
