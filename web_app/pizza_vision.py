@@ -86,14 +86,21 @@ def classname(str):
 # Helper function to get the classname and filename
 def classname_filename(str):
     return str.split('/')[-2] + '/' + str.split('/')[-1]
-
+'/app/pizza_vision/web_app/yelp_only/'
 
 # Helper functions to plot the nearest images given a query image
 def plot_images(filenames, distances):
-    images = []
+    
     rec_ids = []
+    input_file = filenames.pop(0)
+    for filename in filenames:
+        filename = '/app/pizza_vision/web_app/yelp_only/' + classname_filename(filename)
+    filenames = [input_file]+filenames
+    
+    images = []
     for filename in filenames:
         images.append(mpimg.imread(filename))
+    
     plt.figure(figsize=(20, 10))
     columns = 4
     for i, image in enumerate(images):
@@ -194,8 +201,9 @@ if ((uploaded_file is not None) & (user_text != '')):
 
     # Since this image is from outside our images, first image is ok to take as recommendation
     similar_image_paths = [uploaded_file] + [filenames[indices[0][i]] for i in range(0, 3)]
-    # plot_images(similar_image_paths, distances[0])
-
+    st.write("The closest images to your input on file are:")
+    plot_images(similar_image_paths, distances[0])
+    st.write("Now I'll take the top 25 closest images and find the three restaurants whose reviews match your text most closely")
     # Get dataframe of 25 recommended pizzas from full restaurant list
     image_recs_df = nmf_df[nmf_df['id'].isin(image_recs) & (nmf_df['pizza_words'] != '')].reset_index()
 
