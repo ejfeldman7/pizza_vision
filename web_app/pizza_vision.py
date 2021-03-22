@@ -233,7 +233,6 @@ if ((uploaded_file is not None) & (user_text != '')):
     # image_recs_df.iloc[recs]
 
     # Report back the final recommendations
-    "Hello, {}. You are {}.".format(name, age)
     st.write('Based on your image and text description, the following options are recommended:') #str(item)
     st.write('\n')
     st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[0]]['name'],url_df.iloc[recs[0]]['rest_url'],image_recs_df.iloc[recs[0]]['address']))
