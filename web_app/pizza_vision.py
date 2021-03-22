@@ -204,9 +204,8 @@ if ((uploaded_file is not None) & (user_text != '')):
 
     # Since this image is from outside our images, first image is ok to take as recommendation
     similar_image_paths = [uploaded_file] + [filenames[indices[0][i]] for i in range(0, 3)]
-    st.write("The closest images to your input on file are:")
-    plot_images(similar_image_paths, distances[0])
-    st.write("Now I'll take the top 25 closest images and find the three restaurants whose reviews match your text most closely")
+
+    '''__Now I'll take the top 25 closest images and find the three restaurants whose reviews match your text most closely__'''
     # Get dataframe of 25 recommended pizzas from full restaurant list
     image_recs_df = nmf_df[nmf_df['id'].isin(image_recs) & (nmf_df['pizza_words'] != '')].reset_index()
 
@@ -232,4 +231,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     st.write('I recommend you try:',image_recs_df.iloc[recs[1]]['name'],'located at',image_recs_df.iloc[recs[1]]['address'],'.')
     st.write('\n')
     st.write('I recommend you try:',image_recs_df.iloc[recs[2]]['name'],'located at',image_recs_df.iloc[recs[2]]['address'],'.')
+
+    '''__The top three closest images, which may not be in the recommendations seen above can be seen below. The first image is your input image.__'''
+    plot_images(similar_image_paths, distances[0])
 
