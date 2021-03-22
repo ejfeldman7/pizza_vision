@@ -117,8 +117,7 @@ def plot_images(filenames, distances):
             caption = "Similar Image from:"+ "\n" + github_files[i].split('/')[-1].split('.')[0]
         st.image(image, caption=caption, width=100)
     
-    captions_on_page = []
-    captions_on_page.append(filenames[0])
+    captions_on_page = ['Your Input Image']
     for file in filenames[1:4]:
       captions_on_page.append(file.split('/')[-1].split('.')[0])
     images_on_page = images
