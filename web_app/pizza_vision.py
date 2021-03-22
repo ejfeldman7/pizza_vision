@@ -114,8 +114,9 @@ def plot_images(filenames, distances):
             # ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +"\nDistance: " +str(float("{0:.2f}".format(distances[i]))))
             name = [restaurant.capitalize() for restaurant in github_files[i].split('/')[-1].split('.')[0].split('_')]
             name = ' '.join(name)
-            caption = "Similar Image from:"+ "\n" + 
+            caption = "Similar Image from:"+ "\n" + filenames[i].split('/')[-1].split('.')[0]
         st.image(image, caption=caption, width=100)
+        
         # plt.imshow(image)
 
 # Helper function to return restaurant ids for recommendations
