@@ -257,7 +257,7 @@ if ((uploaded_file is not None) & (user_text != '')):
       
       
     __If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
-    similar_image_paths = filenames
+    filenames = similar_image_paths
     rec_ids = []
     github_files = []
     input_file = filenames.pop(0)
