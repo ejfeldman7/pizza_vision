@@ -224,7 +224,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     # Since this image is from outside our images, first image is ok to take as recommendation
     distances, indices = neighbors.kneighbors([extract_features(image,resnet_model)])
     similar_image_paths = [uploaded_file] + [filenames[indices[0][i]] for i in range(0, 3)]
-    new_image_list = [recommended_image_files[i] for i in [indices[0][0:3]])]
+    new_image_list = [recommended_image_files[i] for i in [indices[0][0:3]]]
     final_rec_image_list = [uploaded_file] + new_image_list
 
     '''__Now I'll take the top 25 closest images and find the three restaurants whose reviews match your text most closely__'''
