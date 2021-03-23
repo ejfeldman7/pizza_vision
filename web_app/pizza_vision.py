@@ -226,8 +226,6 @@ if ((uploaded_file is not None) & (user_text != '')):
     similar_image_paths = [uploaded_file] + [filenames[indices[0][i]] for i in range(0, 3)]
     st.write(indices[0][0:3])
     st.write(recommended_image_files)
-    new_image_list = [recommended_image_files[i] for i in [indices[0][0:3]]]
-    final_rec_image_list = [uploaded_file] + new_image_list
 
     '''__Now I'll take the top 25 closest images and find the three restaurants whose reviews match your text most closely__'''
     # Get dataframe of 25 recommended pizzas from full restaurant list
@@ -248,7 +246,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     # Get urls of those recommendations
     url_of_recs = list(image_recs_df.iloc[recs]['index'])
     # Get images of those recommendations
-    end_result = [final_rec_image_list[i] for i in recs]
+    end_result = [recommended_image_files[i] for i in recs]
 
     # Report back the final recommendations
     st.write('Based on your image and text description, the following options are recommended:') #str(item)
