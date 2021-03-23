@@ -135,6 +135,18 @@ def get_image_recs(img_path, num_recs):
     rec_ids.append(filename.split('/')[-1].split('.')[0].split('_')[0])
   return rec_ids
 
+# Helper function to return top images
+def top_images(img_path, num_recs):
+  img_features = extract_features(img_path,resnet_model)
+  distances, indices = neighbors.kneighbors([img_features])
+  # Since this image is from outside our images, first image is ok to take as recommendation
+  similar_image_paths = [filenames[indices[0][i]] for i in range(0, num_recs)]
+  github_files = []
+  for filename in similar_image_paths:
+      github = '/app/pizza_vision/web_app/yelp_only/' + classname_filename(filename)
+      github_files.append(github)
+  return github_files
+
 # Helper function to extract resnet features from an image
 def extract_features(img, model):
     input_shape = (224, 224, 3)
@@ -206,6 +218,7 @@ if ((uploaded_file is not None) & (user_text != '')):
 
     # Get 25 recommended images for an image (placeholder file entered for now)
     image_recs = get_image_recs(image,25)
+    recommended_image_files = top_images(image,25)
 
     # Use this to find and show the top three images, along with the uploaded image (placeholder files for now)
     distances, indices = neighbors.kneighbors([extract_features(image,resnet_model)])
@@ -229,8 +242,11 @@ if ((uploaded_file is not None) & (user_text != '')):
 
     # Select the top three closest user reviews with the input text and find those restaurants
     recs = list(indices[0][0:4])
-    # image_recs_df.iloc[recs]
+    # Get urls of those recommendations
     url_of_recs = list(image_recs_df.iloc[recs]['index'])
+    # Get images of those recommendations
+    end_result = [recommended_image_files[i] for i in recs]
+
     # Report back the final recommendations
     st.write('Based on your image and text description, the following options are recommended:') #str(item)
     st.write('\n')
@@ -239,12 +255,13 @@ if ((uploaded_file is not None) & (user_text != '')):
     st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[1]]['name'],url_df.iloc[url_of_recs[1]]['rest_url'],image_recs_df.iloc[recs[1]]['address']))
     st.write('\n')
     st.write('I recommnend you try [{}]({}), located at {}'.format(image_recs_df.iloc[recs[2]]['name'],url_df.iloc[url_of_recs[2]]['rest_url'],image_recs_df.iloc[recs[2]]['address']))
+   
     # st.write('I recommend you try:',image_recs_df.iloc[recs[0]]['name'],'located at',image_recs_df.iloc[recs[0]]['address'],'.')
     # st.write('\n')
     # st.write('I recommend you try:',image_recs_df.iloc[recs[1]]['name'],'located at',image_recs_df.iloc[recs[1]]['address'],'.')
     # st.write('\n')
     # st.write('I recommend you try:',image_recs_df.iloc[recs[2]]['name'],'located at',image_recs_df.iloc[recs[2]]['address'],'.')
-
+    plot_images(end_result, distances[0])
     '''__If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
     
     plot_images(similar_image_paths, distances[0])
