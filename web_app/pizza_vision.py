@@ -243,6 +243,7 @@ if ((uploaded_file is not None) & (user_text != '')):
 
     # Select the top three closest user reviews with the input text and find those restaurants
     recs = list(indices[0][0:4])
+    st.write(recs)
     # Get urls of those recommendations
     url_of_recs = list(image_recs_df.iloc[recs]['index'])
     # Get images of those recommendations
