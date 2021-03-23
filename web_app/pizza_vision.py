@@ -268,8 +268,8 @@ if ((uploaded_file is not None) & (user_text != '')):
     # plot_images(end_result, distances[0])
 
     '''
-    
-    
+      
+      
     __If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
     
     plot_images(similar_image_paths, distances[0])
