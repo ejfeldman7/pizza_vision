@@ -257,23 +257,5 @@ if ((uploaded_file is not None) & (user_text != '')):
       
       
     __If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
-    filenames = similar_image_paths
-    rec_ids = []
-    github_files = []
-    input_file = filenames.pop(0)
-    for filename in filenames:
-        github = '/app/pizza_vision/web_app/yelp_only/' + classname_filename(filename)
-        github_files.append(github)
-    github_files = [input_file]+github_files
-    images = []
-    for filename in github_files:
-        images.append(mpimg.imread(filename))
-    
-    captions_on_page = ['Your Input Image']
-    captions_on_page = captions_on_page + ['![{}]({})'.format(image_recs_df.iloc[recs[0]]['name'],url_df.iloc[url_of_recs[0]]['rest_url']),
-                        '![{}]({})'.format(image_recs_df.iloc[recs[1]]['name'],url_df.iloc[url_of_recs[1]]['rest_url']),
-                        '![{}]({})'.format(image_recs_df.iloc[recs[2]]['name'],url_df.iloc[url_of_recs[2]]['rest_url'])]
-    images_on_page = images
-    st.image(images_on_page, width=170, caption=captions_on_page)
-    # plot_images(similar_image_paths, distances[0])
+    plot_images(similar_image_paths, distances[0])
 
