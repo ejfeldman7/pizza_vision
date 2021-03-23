@@ -133,7 +133,7 @@ def get_image_recs(img_path, num_recs):
   rec_ids = []
   for filename in similar_image_paths:
     rec_ids.append(filename.split('/')[-1].split('.')[0].split('_')[0])
-  rec_ids = [i for n, i in enumerate(rec_ids) if i not in rec_ids[:n]]
+  # rec_ids = [i for n, i in enumerate(rec_ids) if i not in rec_ids[:n]]
   return rec_ids
 
 # Helper function to return top images
@@ -265,8 +265,12 @@ if ((uploaded_file is not None) & (user_text != '')):
     # st.write('I recommend you try:',image_recs_df.iloc[recs[1]]['name'],'located at',image_recs_df.iloc[recs[1]]['address'],'.')
     # st.write('\n')
     # st.write('I recommend you try:',image_recs_df.iloc[recs[2]]['name'],'located at',image_recs_df.iloc[recs[2]]['address'],'.')
-    plot_images(end_result, distances[0])
-    '''__If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
+    # plot_images(end_result, distances[0])
+
+    '''
+    
+    
+    __If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
     
     plot_images(similar_image_paths, distances[0])
 
