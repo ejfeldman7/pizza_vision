@@ -220,12 +220,12 @@ if ((uploaded_file is not None) & (user_text != '')):
     image_recs = get_image_recs(image,25)
     recommended_image_files = top_images(image,25)
 
-    # Use this to find and show the top three images, along with the uploaded image (placeholder files for now)
-    distances, indices = neighbors.kneighbors([extract_features(image,resnet_model)])
-
+    # Use this to find and show the top images, along with the uploaded image (placeholder files for now)
     # Since this image is from outside our images, first image is ok to take as recommendation
+    distances, indices = neighbors.kneighbors([extract_features(image,resnet_model)])
     similar_image_paths = [uploaded_file] + [filenames[indices[0][i]] for i in range(0, 3)]
-
+    recommended_image_files [uploaded_file] + [recommended_image_files[indices[0][i]] for i in range(0, 3)]
+    
     '''__Now I'll take the top 25 closest images and find the three restaurants whose reviews match your text most closely__'''
     # Get dataframe of 25 recommended pizzas from full restaurant list
     image_recs_df = nmf_df[nmf_df['id'].isin(image_recs) & (nmf_df['pizza_words'] != '')].reset_index()
