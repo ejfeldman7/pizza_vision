@@ -102,20 +102,6 @@ def plot_images(filenames, distances):
     for filename in github_files:
         images.append(mpimg.imread(filename))
     
-    # plt.figure(figsize=(20, 10))
-    # columns = 4
-    # for i, image in enumerate(images):
-    #     ax = plt.subplot(len(images) / columns + 1, columns, i + 1)
-    #     if i == 0:
-    #         # ax.set_title("Your Input Image")
-    #         caption = "Your Input Image"
-    #     else:
-    #         # ax.set_title("Similar Image\n" + github_files[i].split('/')[-1].split('.')[0] +"\nDistance: " +str(float("{0:.2f}".format(distances[i]))))
-    #         name = [restaurant.capitalize() for restaurant in github_files[i].split('/')[-1].split('.')[0].split('_')]
-    #         name = ' '.join(name)
-    #         caption = "Similar Image from:"+ "\n" + github_files[i].split('/')[-1].split('.')[0]
-    #     st.image(image, caption=caption, width=100)
-    
     captions_on_page = ['Your Input Image']
     for indx in range(1,len(github_files)):
       captions_on_page.append(github_files[indx].split('/')[-1].split('.')[0].split('_')[0])
@@ -271,6 +257,21 @@ if ((uploaded_file is not None) & (user_text != '')):
       
       
     __If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__'''
+    similar_image_paths = filenames
+    rec_ids = []
+    github_files = []
+    input_file = filenames.pop(0)
+    for filename in filenames:
+        github = '/app/pizza_vision/web_app/yelp_only/' + classname_filename(filename)
+        github_files.append(github)
+    github_files = [input_file]+github_files
+    images = []
+    for filename in github_files:
+        images.append(mpimg.imread(filename))
     
-    plot_images(similar_image_paths, distances[0])
+    captions_on_page = ['Your Input Image']
+    captions_on_page = captions_on_page+['[{}]({})'.format(image_recs_df.iloc[recs[0]]['name'],url_df.iloc[url_of_recs[0]]['rest_url']]),'[{}]({})'.format(image_recs_df.iloc[recs[1]]['name'],url_df.iloc[url_of_recs[1]]['rest_url']]),'[{}]({})'.format(image_recs_df.iloc[recs[2]]['name'],url_df.iloc[url_of_recs[2]]['rest_url']])]
+    images_on_page = images
+    st.image(images_on_page, width=170, caption=captions_on_page)
+    # plot_images(similar_image_paths, distances[0])
 
