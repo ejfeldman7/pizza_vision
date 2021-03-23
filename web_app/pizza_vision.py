@@ -247,7 +247,7 @@ if ((uploaded_file is not None) & (user_text != '')):
     # Get urls of those recommendations
     url_of_recs = list(image_recs_df.iloc[recs]['index'])
     # Get images of those recommendations
-    end_result = [recommended_image_files[i] for i in recs]
+    end_result = [uploaded_file]+[recommended_image_files[i] for i in recs]
 
     # Report back the final recommendations
     st.write('Based on your image and text description, the following options are recommended:') #str(item)
