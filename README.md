@@ -25,11 +25,15 @@ I scraped just under 1000 Chicagoland restaurant Yelp pages for both images tagg
 
 While I tried using a pretrained Resnet model, a finetuned Resnet model, and a custom Autoencoder model, I found that the pretrained Resnet model performed the best on identifying similar images. This was a subjective decision made by comparing top recommended pizzas from randomly selected input pizzas and identifying flaws (recommending deep dish when the input was Neopolitan). In this process, I decided the recommendations from the images alone needed additional support, but that they did an excellect job of filtering to a smaller subset from which to recommend.
 
-Using the nearest twenty five neighbors to a given image's Resnet feature weights, I then used a comparison of reviews to finalize the top three recommendations. I implemented topic modeling using Non-negative Matrix Factorization on a TF-IDF embedding of each review to turn each review into a shorter vector. The dimensions of this vector identified each review as falling into categories I identified by the most common words such as "Deep Dish" or "Italian Restaurant." I could then compare the review document of each of the twenty five neighbors identified by Resnet and the nearest neighbors filter to a given input of text. Using cosine similarity, I then output the top three recommended restaurants.
+Using the nearest twenty five neighbors to a given image's Resnet feature weights, I then used a comparison of reviews to finalize the top three recommendations. I implemented topic modeling using Non-negative Matrix Factorization on a TF-IDF embedding of each review to turn each review into a shorter vector. The dimensions of this vector identified each review as falling into categories I identified "Deep Dish" or "Italian Restaurant" by the identifying the most common words and most central restaurants to each group.
+
+The recommendation enginge filters restaurants initially by a nearest neighbors algorithm using Euclidean distance to identify the 25 most similar images. Those images are then used to identify the top potential restaurants, whose review documents are then compared against the user text input. Using cosine similarity, I then output the top three recommended restaurants overall for future pizza exploration.
 
 ## Findings
 
+I was surprised at how well using the pretrained Resnet weights worked for comparing pizzas. Going in to the project, I had expected the models that trained on pizzas to output better recommendations. I believe image quality issues from Yelp, in particular focus, lighting, and angle, led to worse results upon training. I think, for the future, finding a source of more, higher quality, consistent images could allow me to return to creating a better model from the images. 
 
+In comparing the recommendations from using only images, only text, or a combination, I do believe that the outputs from the combined version appear most trustworthy. However, to truly identify success in this area, I think I'll need to eat a lot of pizza to confirm. That's a sacrifice I'm willing to make. Early returns on recommendations have been strong and I am committed to seeing this effort through.
 
 ## Demo
 
