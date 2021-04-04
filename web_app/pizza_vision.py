@@ -76,7 +76,11 @@ topic_word = pickle.load(open('/app/pizza_vision/web_app/colab_topic_word.pickle
 tfidf = pickle.load(open('/app/pizza_vision/web_app/colab_tfidf.pickle', 'rb'))
 tfidf__mat = pickle.load(open('/app/pizza_vision/web_app/colab_tfidf_mat.pickle', 'rb'))
 
-resnet_model = ResNet50(weights='imagenet',include_top=False, input_shape=(224, 224, 3),pooling='max')
+@st.cache
+def load_resnet():
+    return ResNet50(weights='imagenet',include_top=False, input_shape=(224, 224, 3),pooling='max')
+    
+resnet_model = load_resnet()
 
 # Helper function to get the classname
 def classname(str):
