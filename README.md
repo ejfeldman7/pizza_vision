@@ -1,6 +1,6 @@
 # Pizza Vision Project
 
-[The Streamlit app can be found here](https://share.streamlit.io/ejfeldman7/pizza_vision/main/web_app/pizza_vision.py), but for a short demo of the Streamlit app, please scroll to the bottom of the ReadMe.
+[The Streamlit app can be found here](https://share.streamlit.io/ejfeldman7/pizza_vision/main/web_app/pizza_vision.py), but for a short demo of the Streamlit app, please scroll to the bottom of this ReadMe.
 
 # Contents
 
