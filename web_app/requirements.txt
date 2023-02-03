@@ -5,4 +5,4 @@ scikit_learn==0.22.2.post1
 
 tensorflow==2.4.1
 matplotlib==3.2.2
-nltk==3.2.5
+nltk#==3.2.5
