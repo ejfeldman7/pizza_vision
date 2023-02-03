@@ -22,11 +22,13 @@ from io import StringIO
 import string
 
 import nltk
-from nltk.corpus import stopwords
+
 nltk.download('stopwords')
 nltk.download('wordnet')
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
+
+from nltk.corpus import stopwords
 # from nltk import sent_tokenize, word_tokenize
 # from nltk.stem.snowball import SnowballStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
