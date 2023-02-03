@@ -37,13 +37,14 @@ nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
 from nltk.corpus import stopwords
+from nltk.corpus import wordnet
 # from nltk import sent_tokenize, word_tokenize
 # from nltk.stem.snowball import SnowballStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 import string
 from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords, wordnet
+# from nltk.corpus import stopwords, wordnet
 import pickle
 # from tqdm import tqdm, tqdm_notebook
 import sklearn
