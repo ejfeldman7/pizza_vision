@@ -94,7 +94,7 @@ tfidf = pickle.load(open(f"{data_path}/colab_tfidf.pickle", "rb"))
 tfidf__mat = pickle.load(open(f"{data_path}/colab_tfidf_mat.pickle", "rb"))
 
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_resnet():
     return ResNet50(
         weights="imagenet", include_top=False, input_shape=(224, 224, 3), pooling="max"
