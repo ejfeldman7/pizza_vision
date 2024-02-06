@@ -276,6 +276,7 @@ if (uploaded_file is not None) & (user_text != ""):
     user_text = clean_text(user_text)
     # Vectorize user text, do topic modeling
     vt = tfidf.transform([user_text]).todense()  #
+    vt = np.asarray(vt)
     tt1 = nmf.transform(vt)
     doc_topic = image_recs_df[
         [
