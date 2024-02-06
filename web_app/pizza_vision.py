@@ -81,7 +81,7 @@ chicagoland = pickle.load(open(f"{data_path}/chicagoland.pickle", "rb"))
 
 # Computer Vision
 filenames = pickle.load(open(f"{data_path}/OGfilenames_images.pickle", "rb"))
-feature_list = pickle.load(open(f"{model_path}/OGfeatures-resnet.pickle", "rb"))
+feature_list = pickle.load(open(f"{data_path}/OGfeatures-resnet.pickle", "rb"))
 class_ids = pickle.load(open(f"{data_path}/OGresnet_classids.pickle", "rb"))
 # apart_features = pickle.load(open('/content/drive/My Drive/ds/pizza_images/autoencoder/features-resnet-apart.pickle', 'rb'))
 
