@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from numpy.linalg import norm
 import string
-import nltk
+from nltk import download, pos_tag
 import ssl
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
@@ -17,10 +17,10 @@ from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from tensorflow.keras.preprocessing import image as image_process
 import matplotlib.image as mpimg
 
-nltk.download("stopwords")
-nltk.download("wordnet")
-nltk.download("punkt")
-nltk.download("averaged_perceptron_tagger")
+download("stopwords")
+download("wordnet")
+download("punkt")
+download("averaged_perceptron_tagger")
 
 stops = stopwords.words("english")
 sw = stops + [
@@ -186,7 +186,7 @@ def clean_text(input):
     total_df["stopwords_removed"] = total_df["no_punc"].apply(
         lambda x: [word for word in x if word not in sw]
     )
-    total_df["pos_tags"] = total_df["stopwords_removed"].apply(nltk.tag.pos_tag)
+    total_df["pos_tags"] = total_df["stopwords_removed"].apply(pos_tag)
 
     def get_wordnet_pos(tag):
         if tag.startswith("J"):
@@ -222,7 +222,7 @@ resnet_model = load_resnet()
 st.sidebar.write(
     """
     __About__ \n
-    This project was built from just under 1000 scraped restaurants in the Chicagoland area. The user reviews were used to create vectors across the pizza spectrum for comparisons between pizzas. 
+    This project was built from just under 1000 scraped restaurants in the Chicagoland area. The user reviews were used to create vectors across the pizza spectrum for comparisons between pizzas.
     \n
     This site was created by Ethan Feldman. You can find him on [GitHub](https://github.com/ejfeldman7), [LinkedIn](https://www.linkedin.com/in/feldmanethan/), [Medium/TDS](https://ethan-feldman.medium.com/) and his [website](https://www.ejfeldman.com/).
     """
@@ -351,7 +351,5 @@ if (uploaded_file is not None) & (user_text != ""):
     # plot_images(end_result, distances[0])
 
     """
-      
-      
     __If you would prefer, you may also consider the recommendation based solely on the most similar images. Below, you can find your input image and the three most similar images, without using the reviews in the recommendation.__"""
     plot_images(similar_image_paths, distances[0])
