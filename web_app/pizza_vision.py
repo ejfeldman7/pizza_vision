@@ -69,34 +69,25 @@ except AttributeError:
 else:
     ssl._create_default_https_context = _create_unverified_https_context
 
+pizza_kitchen = "/app/pizza_vision/web_app/"
 # Pizza info
-big_pizza_details = pickle.load(
-    open("/app/pizza_vision/web_app/big_pizza_details.pickle", "rb")
-)
-url_df = pickle.load(open("/app/pizza_vision/web_app/big_pizza_urls.pickle", "rb"))
-chicagoland = pickle.load(open("/app/pizza_vision/web_app/chicagoland.pickle", "rb"))
+big_pizza_details = pickle.load(open(f"{pizza_kitchen}big_pizza_details.pickle", "rb"))
+url_df = pickle.load(open(f"{pizza_kitchen}/big_pizza_urls.pickle", "rb"))
+chicagoland = pickle.load(open(f"{pizza_kitchen}chicagoland.pickle", "rb"))
 
 # Computer Vision
-filenames = pickle.load(
-    open("/app/pizza_vision/web_app/OGfilenames_images.pickle", "rb")
-)
-feature_list = pickle.load(
-    open("/app/pizza_vision/web_app/OGfeatures-resnet.pickle", "rb")
-)
-class_ids = pickle.load(
-    open("/app/pizza_vision/web_app/OGresnet_classids.pickle", "rb")
-)
+filenames = pickle.load(open(f"{pizza_kitchen}OGfilenames_images.pickle", "rb"))
+feature_list = pickle.load(open(f"{pizza_kitchen}OGfeatures-resnet.pickle", "rb"))
+class_ids = pickle.load(open(f"{pizza_kitchen}OGresnet_classids.pickle", "rb"))
 # apart_features = pickle.load(open('/content/drive/My Drive/ds/pizza_images/autoencoder/features-resnet-apart.pickle', 'rb'))
 
 # NLP info
-nmf_df = pickle.load(open("/app/pizza_vision/web_app/colab_nmf_df.pickle", "rb"))
-nmf = pickle.load(open("/app/pizza_vision/web_app/nmf_v122.pickle", "rb"))
-doc_topic = pickle.load(open("/app/pizza_vision/web_app/colab_doc_topic.pickle", "rb"))
-topic_word = pickle.load(
-    open("/app/pizza_vision/web_app/colab_topic_word.pickle", "rb")
-)
-tfidf = pickle.load(open("/app/pizza_vision/web_app/colab_tfidf.pickle", "rb"))
-tfidf__mat = pickle.load(open("/app/pizza_vision/web_app/colab_tfidf_mat.pickle", "rb"))
+nmf_df = pickle.load(open(f"{pizza_kitchen}colab_nmf_df.pickle", "rb"))
+nmf = pickle.load(open(f"{pizza_kitchen}nmf_v122.pickle", "rb"))
+doc_topic = pickle.load(open(f"{pizza_kitchen}colab_doc_topic.pickle", "rb"))
+topic_word = pickle.load(open(f"{pizza_kitchen}colab_topic_word.pickle", "rb"))
+tfidf = pickle.load(open(f"{pizza_kitchen}colab_tfidf.pickle", "rb"))
+tfidf__mat = pickle.load(open(f"{pizza_kitchen}colab_tfidf_mat.pickle", "rb"))
 
 
 @st.cache
@@ -118,7 +109,7 @@ def plot_images(filenames, distances):
     github_files = []
     input_file = filenames.pop(0)
     for filename in filenames:
-        github = "/app/pizza_vision/web_app/yelp_only/" + classname_filename(filename)
+        github = f"{pizza_kitchen}yelp_only/" + classname_filename(filename)
         github_files.append(github)
     github_files = [input_file] + github_files
 
@@ -155,7 +146,7 @@ def top_images(img_path, num_recs):
     similar_image_paths = [filenames[indices[0][i]] for i in range(0, num_recs)]
     github_files = []
     for filename in similar_image_paths:
-        github = "/app/pizza_vision/web_app/yelp_only/" + classname_filename(filename)
+        github = f"{pizza_kitchen}yelp_only/" + classname_filename(filename)
         github_files.append(github)
     return github_files
 
